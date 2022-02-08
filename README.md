@@ -16,7 +16,7 @@ Triviana is a timed, multiple-choice trivia game. It generates a set number of r
 
 1. Mayank Dineshkumar Patel - mayankdp 
 2. Kevin Mody - kevinmody - kmody@g.clemson.edu
-3. Henry Moore - henrymooresc
+3. Henry Moore - henrymooresc - hpmoore@g.clemson.edu
 4. Drew Garrison?
 
 ## Teamwork Policies:

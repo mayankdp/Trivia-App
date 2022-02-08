@@ -12,10 +12,10 @@ Triviana is a timed, multiple-choice trivia game. It generates a set number of r
 - Questionnaires: This feature will give users to set how many questions of a single trivia game they want to play
 - Soundtrack: This feature will have background music in the game and music for each question that a user answers correctly. 
 
-### Contributors (Names - Github):
+### Contact/Contributors (Names - Github):
 
-1. Mayank Dineshkumar Patel - mayankdp
-2. Kevin Mody - kevinmody
+1. Mayank Dineshkumar Patel - mayankdp 
+2. Kevin Mody - kevinmody - kmody@g.clemson.edu
 3. Henry Moore - henrymooresc
 4. Drew Garrison?
 

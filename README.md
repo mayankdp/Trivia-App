@@ -26,3 +26,4 @@ Triviana is a timed, multiple-choice trivia game. It generates a set number of r
 ## License:
 
 Distributed under the MIT License. See License.txt for more information.
+

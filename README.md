@@ -1,5 +1,11 @@
 # Trivia-App
 
+Description
+
+Features 
+
+Resources
+
 # Authors
 * Mayank Dineshkumar Patel - mdpatel@g.clemson.edu <br/>
 * Kevin Mody

@@ -22,3 +22,7 @@ Triviana is a timed, multiple-choice trivia game. It generates a set number of r
 ## Teamwork Policies:
 
 - Communicate with the group through Microsoft Teams
+
+## License:
+
+Distributed under the MIT License. See LICENSE.txt for more information.

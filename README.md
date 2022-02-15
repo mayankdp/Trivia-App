@@ -28,6 +28,9 @@ Triviana is a timed, multiple-choice trivia game. It generates a chosen number o
 ## Teamwork Policies:
 
 - Communicate with the group through Microsoft Teams
+- All the tasks assigned by a Scrum Master or team member needs to completed before the deadline. 
+- Scrum Master is using Github Project tool to keep track and monitor all the backlogs, user stories and tasks. 
+
 
 ## License:
 

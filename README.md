@@ -17,6 +17,8 @@ Triviana is a timed, multiple-choice trivia game. It generates a chosen number o
 - [ ] Implement question generation
 - [ ] Create database for results logging
 - [ ] Create leaderboard
+- [ ] Create graphics for the UI
+- [ ] Implement soundtrack for application
 
 ## Contributing:
 

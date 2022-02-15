@@ -23,7 +23,7 @@ Triviana is a timed, multiple-choice trivia game. It generates a chosen number o
 1. Mayank Dineshkumar Patel - mayankdp - mdpatel@g.clemson.edu
 2. Kevin Mody (Scrum Master) - kevinmody - kmody@g.clemson.edu
 3. Henry Moore - henrymooresc - hpmoore@g.clemson.edu
-4. Drew Garrison - awgarri
+4. Drew Garrison - awgarri - awgarri@g.clemson.edu
 
 ## Teamwork Policies:
 

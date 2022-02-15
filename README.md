@@ -42,7 +42,7 @@ If you have a suggestion that would make this better, please fork the repo and c
 ## Teamwork Policies:
 
 - Communicate with the group through Microsoft Teams
-- All the tasks assigned by a Scrum Master or team member needs to completed before the deadline. 
+- All the tasks assigned by a Scrum Master or team member needs to be completed before the deadline. 
 - Scrum Master is using Github Project tool to keep track and monitor all the backlogs, user stories and tasks. 
 
 

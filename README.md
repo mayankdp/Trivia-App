@@ -2,7 +2,7 @@
 
 ## Description:
 
-Triviana is a timed, multiple-choice trivia game. It generates a chosen number of random questions using a trivia API (https://github.com/linnndachen/Trivia-API) and populates fake answers using Wikidata (https://www.wikidata.org). The user's time and correct answer total are logged to be shared on a leaderboard. 
+Triviana is a timed, multiple-choice trivia game. It generates a chosen number of random questions using a trivia API and populates fake answers using Wikidata. The user's time and correct answer total are logged to be shared on a leaderboard. The user can also create an account in order to keep track of their quiz statistics.
 
 ## Feature: 
 
@@ -14,11 +14,25 @@ Triviana is a timed, multiple-choice trivia game. It generates a chosen number o
 
 ## Roadmap:
 - [ ] Create web server
-- [ ] Implement question generation
 - [ ] Create database for results logging
-- [ ] Create leaderboard
+- [ ] Implement question generation
+- [ ] Implement quiz generation
+- [ ] Implement account creation
 - [ ] Create graphics for the UI
+- [ ] Create game UI
+- [ ] Create leaderboard UI
 - [ ] Implement soundtrack for application
+
+## Resources:
+- Possible APIs to use
+ 1. https://github.com/linnndachen/Trivia-API
+ 2. https://opentdb.com/
+ 3. https://www.wikidata.org
+- Possible languages to use
+ 1. HTML/CSS
+ 2. JavaScript
+ 3. React
+ 4. SQL
 
 ## Contributing:
 

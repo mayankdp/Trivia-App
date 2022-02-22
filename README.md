@@ -59,6 +59,10 @@ If you have a suggestion that would make this better, please fork the repo and c
 - All the tasks assigned by a Scrum Master or team member needs to be completed before the deadline. 
 - Scrum Master is using Github Project tool to keep track and monitor all the backlogs, user stories and tasks. 
 
+## UI Wireframes
+
+[signup page wireframe](images/signup_page_mock.png)
+[quiz page wireframe](images/quiz_page_mock.png)
 
 ## License:
 

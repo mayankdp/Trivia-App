@@ -61,8 +61,8 @@ If you have a suggestion that would make this better, please fork the repo and c
 
 ## UI Wireframes
 
-[signup page wireframe](images/signup_page_mock.png)
-[quiz page wireframe](images/quiz_page_mock.png)
+![signup page wireframe](images/signup_page_mock.png)
+![quiz page wireframe](images/quiz_page_mock.png)
 
 ## License:
 

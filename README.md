@@ -62,17 +62,28 @@ If you have a suggestion that would make this better, please fork the repo and c
 ## UI Wireframes
 
 - Basic home page
-![base home page wireframe](images/home_page_mock.png)
+<img src="images/home_page_mock.png" width="400">
+<!-- ![base home page wireframe](images/home_page_mock.png)-->
+
 - Home page while signed in
-![signed in home page wireframe](images/home_page_signedin_mock.png)
+<img src="images/home_page_signedin_mock.png" width="400">
+<!-- ![signed in home page wireframe](images/home_page_signedin_mock.png) -->
+
 - Account signup page
-![signup page wireframe](images/signup_page_mock.png)
+<img src="images/signup_page_mock.png" width="400">
+<!-- ![signup page wireframe](images/signup_page_mock.png) -->
+
 - Quiz configuration page
-![quiz configuration page wireframe](images/quiz_select_page_mock.png)
+<img src="images/quiz_select_page_mock.png" width="400">
+<!-- ![quiz configuration page wireframe](images/quiz_select_page_mock.png) -->
+
 - Quiz page
-![quiz page wireframe](images/quiz_page_mock.png)
+<img src="images/quiz_page_mock.png" width="400">
+<!-- ![quiz page wireframe](images/quiz_page_mock.png) -->
+
 - Leaderboard page
-![leaderboard page wireframe](images/leaderboard_page_mock.png)
+<img src="images/leaderboard_page_mock.png" width="400">
+<!-- ![leaderboard page wireframe](images/leaderboard_page_mock.png) -->
 
 ## License:
 

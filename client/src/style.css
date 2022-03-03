@@ -1,0 +1,32 @@
+.placeholder {
+    text-align: center;
+    padding: 50px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #1e90ff;
+}
+
+nav ul li {
+    float: left;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.inactive:hover {
+    background-color: #0181ff;
+}
+
+.active {
+    background-color: #16537e;
+}

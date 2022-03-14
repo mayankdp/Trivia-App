@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import {BrowserRouter, NavLink, Route, Routes} from "react-router-dom";
+import Login from "./components/login";
+import Register from "./components/register";
 import Home from './components/home';
 import Leaderboard from "./components/leaderboard";
-import Login from "./components/login";
 import Profile from "./components/profile";
+import Setup from "./components/setup";
+import Question from "./components/question";
 import Quiz from "./components/quiz";
-import Register from "./components/register";
+import QuizEnd from "./components/quiz-end";
 import AuthService from "./services/auth-service";
 import './style.css';
 
@@ -25,7 +28,7 @@ function App() {
     return (
         <BrowserRouter>
             <nav>
-                <ul>
+                <ul id="navbar">
                     <li>
                         <NavLink
                             to="/"
@@ -66,7 +69,7 @@ function App() {
                     )}
                     <li>
                         <NavLink
-                            to="/quiz"
+                            to="/setup"
                             className={({isActive}) => isActive ? 'active' : 'inactive'}
                         >
                             Quiz
@@ -98,7 +101,10 @@ function App() {
                     <Route path="/login" element={<Login />}/>
                     <Route path="/register" element={<Register />}/>
                     <Route path="/profile" element={<Profile />}/>
+                    <Route path="/setup" element={<Setup />}/>
+                    <Route path="/question" element={<Question />}/>
                     <Route path="/quiz" element={<Quiz />}/>
+                    <Route path="/quiz-end" element={<QuizEnd />}/>
                     <Route path="/leaderboard" element={<Leaderboard />}/>
                 </Routes>
             </nav>

@@ -60,3 +60,44 @@
     margin-top: 5%;
     margin-left: 25%;
 }
+
+#quiz_page {
+
+}
+
+#question {
+    width: 60%;
+    background-color: lightsteelblue;
+    margin: auto;
+    margin-top: 15px;
+    padding: 10px;
+    text-align: center;
+}
+
+#question ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#question li {
+    width: 40%;
+    display: block;
+    box-sizing: border-box;
+    border: 1px solid black;
+    margin: auto;
+    margin-bottom: 10px;
+    background-color: white;
+    padding: 5px;
+}
+
+#question li:hover {
+    background-color: lightgray;
+}
+
+#question li.correct {
+    background-color: green;
+}
+
+#question li.incorrect {
+    background-color: darkred;
+}

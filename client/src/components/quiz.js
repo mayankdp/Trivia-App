@@ -19,9 +19,8 @@ function Quiz() {
     }
 
     return (
-        <div className="placeholder">
-            <h2>Quiz Placeholder</h2>
-            <div id="question">
+        <div className="quiz_page">
+            <div>
                 {component}
             </div>
         </div>

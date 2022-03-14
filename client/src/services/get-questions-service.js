@@ -1,15 +1,13 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from "react-router";
 
 function GetQuestions(props) {
     const category = useSelector(state => state.options.category)
     const difficulty = useSelector(state => state.options.difficulty)
     const qtype = useSelector(state => state.options.qtype)
     const number = useSelector(state => state.options.number)
-    const index = useSelector(state => state.index)
+    //const index = useSelector(state => state.index)
     const dispatch = useDispatch()
-    const history = useNavigate()
 
     const setLoading = (value) => {
         dispatch({
@@ -27,7 +25,7 @@ function GetQuestions(props) {
 
     const handleQuery = async (event) => {
         event.preventDefault()
-        console.log("querying...")
+        console.log("querying questions...")
         let apiUrl = `https://opentdb.com/api.php?amount=${number}`;
 
         if (category.length) {
@@ -51,13 +49,12 @@ function GetQuestions(props) {
                 console.log(res)
                 setQuestions(res.results);
                 setLoading(false);
-                history("/question");
             })
             .catch((e) => {
                 console.log(e)
             })
 
-        if (index > 0) {
+        /*if (index > 0) {
             dispatch({
                 type: 'SET_INDEX',
                 index: 0
@@ -67,7 +64,7 @@ function GetQuestions(props) {
                 type: 'SET_SCORE',
                 score: 0
             })
-        }
+        }*/
     }
 
     return <button onClick={handleQuery}>{props.text}</button>;

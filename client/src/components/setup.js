@@ -68,6 +68,7 @@ function Setup() {
             <div id="setup_page">
                 <div className="form_container" id="setup_form">
                     <h2>Quiz Setup Options</h2>
+
                     <div className="form_group" id="option_category">
                         <h3>Select Category:</h3>
                         <select value={category} onChange={handleCategoryChange}>
@@ -79,6 +80,7 @@ function Setup() {
                             ))}
                         </select>
                     </div>
+
                     <div className="form_group" id="option_difficulty">
                         <h3>Select Difficulty:</h3>
                         <select value={difficulty} onChange={handleDifficultyChange}>
@@ -88,6 +90,7 @@ function Setup() {
                             <option value="hard" key="difficulty-3">Hard</option>
                         </select>
                     </div>
+
                     <div className="form_group" id="option_type">
                         <h3>Select Question Type:</h3>
                         <select value={qtype} onChange={handleTypeChange}>
@@ -96,6 +99,7 @@ function Setup() {
                             <option value="boolean" key="type-2">True/False</option>
                         </select>
                     </div>
+
                     <div className="form_group" id="option_number">
                         <h3>Select Number of Questions:</h3>
                         <select value={number} onChange={handleNumberChange}>
@@ -105,6 +109,7 @@ function Setup() {
                             <option value="20" key="20">20</option>
                         </select>
                     </div>
+
                     <GetQuestions text="Start Quiz!"/>
                 </div>
             </div>

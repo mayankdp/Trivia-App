@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import QuizEnd from "./quiz-end";
 
 const decodeHTML = function (html) {
     const txt = document.createElement('textarea')
@@ -80,19 +79,16 @@ function Question() {
         } else if (choice === correct) {
             return `correct`
         } else if (choice === chosenAnswer) {
-            return `selected`
+            return `incorrect`
         }
     }
 
     if (!question) {
         return (<div>Loading...</div>)
     }
-    else if (index + 1 === questions.length) {
-        return (<div><QuizEnd/></div>)
-    }
     else {
         return (
-            <div>
+            <div id="question">
                 <p>Question {index + 1}:</p>
                 <h3>{question.question}</h3>
                 <ul>
@@ -102,7 +98,7 @@ function Question() {
                         </li>
                     ))}
                 </ul>
-                <div>
+                <div id="score">
                     Score: {score} / {questions.length}
                 </div>
             </div>

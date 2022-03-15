@@ -37,6 +37,7 @@ function Register() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        setFormErrors({});
 
         if (!validateForm()) {
             return

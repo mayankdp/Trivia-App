@@ -1,0 +1,113 @@
+.placeholder {
+    text-align: center;
+    padding: 50px;
+}
+
+#navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #1e90ff;
+}
+
+#navbar li {
+    float: left;
+}
+
+#navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.inactive:hover {
+    background-color: #0181ff;
+}
+
+.active {
+    background-color: #16537e;
+}
+
+.form_container, .container {
+    margin: auto;
+    width: 20%;
+    padding: 20px;
+    background-color: lightgray;
+    border-radius: 8px;
+}
+
+.container input {
+    width: 100%;
+    margin: 15px 0;
+}
+
+.container button {
+    width: 80%;
+    margin-left: 10%;
+}
+
+#setup_page, #login_page {
+    margin: 15px 0 0 0;
+}
+
+#setup_form h2 {
+    text-align: center;
+    border-bottom: 1px solid black;
+    padding: 0 0 5px 0;
+}
+
+#setup_form select {
+    width: 100%;
+    padding: 5px 10px;
+    margin: 5px 0;
+}
+
+#setup_form input[type=submit] {
+    width: 50%;
+    margin-top: 5%;
+    margin-left: 25%;
+}
+
+#quiz_page {
+
+}
+
+#question {
+    width: 60%;
+    background-color: lightsteelblue;
+    margin: auto;
+    margin-top: 15px;
+    padding: 10px;
+    text-align: center;
+}
+
+#question ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#question li {
+    width: 40%;
+    display: block;
+    box-sizing: border-box;
+    border: 1px solid black;
+    margin: auto;
+    margin-bottom: 10px;
+    background-color: white;
+    padding: 5px;
+}
+
+#question li:hover {
+    background-color: lightgray;
+}
+
+#question li.correct {
+    background-color: green;
+}
+
+#question li.incorrect {
+    background-color: darkred;
+}

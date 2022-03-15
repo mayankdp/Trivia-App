@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Login from "./components/login";
 import Register from "./components/register";
 import Home from './components/home';
@@ -10,16 +11,19 @@ import AuthService from "./services/auth-service";
 import './style.css';
 
 function App() {
+    const auth = getAuth();
     const [loggedIn, setLoggedIn] = useState(false);
 
-    useEffect(() => {
-        const session = AuthService.getCurrentSession();
-        if (session) setLoggedIn(true);
-    }, []);
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            setLoggedIn(true);
+        } else {
+            setLoggedIn(false);
+        }
+    })
 
     const logout = () => {
-        AuthService.logout();
-        setLoggedIn(false);
+        AuthService.logout()
     }
 
     return (
@@ -83,8 +87,8 @@ function App() {
                     {loggedIn && (
                         <li>
                             <NavLink
-                                to="/"
-                                className={({isActive}) => isActive ? 'active' : 'inactive'}
+                                to="/logout"
+                                className="inactive"
                                 onClick={logout}
                             >
                                 Logout
@@ -96,6 +100,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home />}/>
                     <Route path="/login" element={<Login />}/>
+                    <Route path="/logout" element={<Home />}/>
                     <Route path="/register" element={<Register />}/>
                     <Route path="/profile" element={<Profile />}/>
                     <Route path="/quiz" element={<Quiz />}/>

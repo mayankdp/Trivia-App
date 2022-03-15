@@ -1,35 +1,43 @@
-const register = (email, password) => {
+import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
 
+const register = (email, password) => {
+    const auth = getAuth();
+    return createUserWithEmailAndPassword(auth, email, password)
+        .then((user) => {
+            console.log("registered")
+            localStorage.setItem("user", user.uid);
+        })
+        .catch((error) => {
+            throw error.message;
+        })
 };
 
 const login = (email, password) => {
-    return fetch("/auth", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({email, password})
-    })
-        .then((res) => res.json())
-        .then((data) => {
-            if (data.message) {
-                console.log("success")
-                localStorage.setItem("user", JSON.stringify(data))
-            }
+    const auth = getAuth();
+    return signInWithEmailAndPassword(auth, email, password)
+        .then((user) => {
+            console.log("signed in")
+            localStorage.setItem("user", user.uid);
+        })
+        .catch((error) => {
+            throw error.message;
         })
 };
 
 const logout = () => {
-    localStorage.removeItem("user");
-};
-
-const getCurrentSession = () => {
-    return JSON.parse(localStorage.getItem("user"));
+    const auth = getAuth();
+    auth.signOut()
+        .then(() => {
+            localStorage.removeItem("user");
+            console.log("logged out");
+        })
+        .catch((error) => {
+            throw error.message;
+        })
 };
 
 export default {
     register,
     login,
-    logout,
-    getCurrentSession,
+    logout
 };

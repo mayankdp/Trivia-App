@@ -31,7 +31,7 @@
     background-color: #16537e;
 }
 
-.form_container {
+.form_container, .container {
     margin: auto;
     width: 20%;
     padding: 20px;
@@ -39,7 +39,17 @@
     border-radius: 8px;
 }
 
-#setup_page {
+.container input {
+    width: 100%;
+    margin: 15px 0;
+}
+
+.container button {
+    width: 80%;
+    margin-left: 10%;
+}
+
+#setup_page, #login_page {
     margin: 15px 0 0 0;
 }
 

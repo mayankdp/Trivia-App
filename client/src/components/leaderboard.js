@@ -1,6 +1,6 @@
 export default function Leaderboard() {
     return (
-        <div className="placeholder">
+        <div id="page_placeholder">
             <h2>Leaderboard Placeholder</h2>
         </div>
     );

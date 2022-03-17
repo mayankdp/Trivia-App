@@ -1,6 +1,6 @@
 export default function Home() {
     return (
-        <div className="placeholder">
+        <div id="page_placeholder">
             <h2>Home Placeholder</h2>
         </div>
     );

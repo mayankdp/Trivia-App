@@ -8,7 +8,6 @@ import Leaderboard from "./components/leaderboard";
 import Profile from "./components/profile";
 import Quiz from "./components/quiz";
 import AuthService from "./services/auth-service";
-import './style.css';
 
 function App() {
     const auth = getAuth();

@@ -5,7 +5,7 @@ function QuizEnd() {
     const index = useSelector(state => state.index);
 
     return (
-        <div className="placeholder">
+        <div id="page_placeholder">
             <h2>End of Quiz!</h2>
             <p>Final Score: {score} / {index}</p>
         </div>

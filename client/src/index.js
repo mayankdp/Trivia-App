@@ -4,7 +4,6 @@ import App from './app';
 import Reducer from './reducer';
 import { createStore } from 'redux';
 import { Provider } from "react-redux";
-import { app, analytics, db} from "./firebase";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 import './index.css';

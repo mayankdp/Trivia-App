@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import AuthService from "../services/auth-service";
+import { login } from "../firebase";
 
 function Login() {
     const history = useNavigate();
@@ -43,13 +43,13 @@ function Login() {
             return
         }
 
-        AuthService.login(email, password)
+        login(email, password)
             .then(() => {
                 console.log("login success")
                 history("/")
             })
             .catch((error) => {
-                console.log("login failed: " + error)
+                alert("login failed: " + error)
             })
     }
 

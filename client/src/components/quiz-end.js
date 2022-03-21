@@ -7,7 +7,7 @@ function QuizEnd() {
     return (
         <div id="page_placeholder">
             <h2>End of Quiz!</h2>
-            <p>Final Score: {score} / {index}</p>
+            <p>Final Score: {score.toFixed(2)} / {index * 2}</p>
         </div>
     )
 }

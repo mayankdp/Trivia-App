@@ -4,7 +4,8 @@ const initState = {
         category: ``,
         difficulty: ``,
         qtype: ``,
-        number: `5`
+        number: `5`,
+        time_limit: 15
     },
     questions: [],
     index: 0,
@@ -51,6 +52,14 @@ const Reducer = (state = initState, action) => {
                 options: {
                     ...state.options,
                     number: action.value
+                }
+            }
+        case "CHANGE_TIMER":
+            return {
+                ...state,
+                options: {
+                    ...state.options,
+                    time_limit: action.value
                 }
             }
         case "SET_QUESTIONS":

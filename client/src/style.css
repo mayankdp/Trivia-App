@@ -54,6 +54,11 @@
     padding: 0 0 5px 0;
 }
 
+#question_footer div {
+    display: inline;
+    margin: 15px;
+}
+
 #question {
     width: 60%;
     background-color: lightsteelblue;

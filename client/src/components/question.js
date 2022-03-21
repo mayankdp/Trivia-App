@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import Countdown from "react-countdown";
 
 const decodeHTML = function (html) {
     const txt = document.createElement('textarea')
@@ -15,7 +16,12 @@ function Question() {
 
     const index = useSelector(state => state.index);
     const score = useSelector(state => state.score);
-    const encodedQuestions = useSelector((state) => state.questions)
+    const encodedQuestions = useSelector(state => state.questions)
+
+    let timerApi;
+    let timeLeft;
+    const timeLimit = useSelector(state => state.options.time_limit);
+    //const [timeLeft, setTimeLeft] = useState(0)
 
     const dispatch = useDispatch();
     const question = questions[index];
@@ -49,14 +55,37 @@ function Question() {
         setChoices(answers)
     }, [question])
 
+    const timerExpire = () => {
+        setChoiceSelected(true)
+        setChosenAnswer(correct)
+
+        if (index + 1 <= questions.length) {
+            setTimeout(() => {
+                setChoiceSelected(false);
+                setChosenAnswer(null);
+
+                dispatch({
+                    type: 'SET_INDEX',
+                    index: index + 1
+                })
+
+                timerApi.start()
+            }, 2500)
+        }
+    }
+
     const handleListItemClick = (event) => {
+        timerApi.pause()
         setChoiceSelected(true)
         setChosenAnswer(event.target.textContent)
+        console.log(timeLeft)
 
         if (event.target.textContent === correct) {
+            let calcScore = 1 + (timeLeft / timeLimit)
+
             dispatch({
                 type: 'SET_SCORE',
-                score: score + 1
+                score: score + calcScore
             })
         }
 
@@ -69,6 +98,8 @@ function Question() {
                     type: 'SET_INDEX',
                     index: index + 1
                 })
+
+                timerApi.start()
             }, 2500)
         }
     }
@@ -83,14 +114,24 @@ function Question() {
         }
     }
 
+    const timerRenderer = ({ seconds, api }) => {
+        timerApi = api;
+
+        timeLeft = seconds;
+
+        return <span> {seconds}</span>
+    }
+
     if (!question) {
         return (<div>Loading...</div>)
     }
     else {
         return (
             <div id="question">
-                <p>Question {index + 1}:</p>
+
+                <h3>Question {index + 1}: </h3>
                 <h3>{question.question}</h3>
+
                 <ul>
                     {choices.map((choice, i) => (
                         <li key={i} onClick={handleListItemClick} className={getClass(choice)}>
@@ -98,8 +139,21 @@ function Question() {
                         </li>
                     ))}
                 </ul>
-                <div id="score">
-                    Score: {score} / {questions.length}
+
+                <div id="question_footer">
+
+                    <div id="timer">
+                        Timer:
+                        <Countdown
+                            date={Date.now() + (timeLimit * 1000)}
+                            renderer={timerRenderer}
+                            onComplete={timerExpire}
+                        />
+                    </div>
+
+                    <div id="score">
+                        Score: {score.toFixed(1)} / {questions.length * 2}
+                    </div>
                 </div>
             </div>
         )

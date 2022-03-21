@@ -12,6 +12,7 @@ function Setup() {
     const difficulty = useSelector(state => state.options.difficulty);
     const qtype = useSelector(state => state.options.qtype);
     const number = useSelector(state => state.options.number);
+    const time_limit = useSelector(state => state.options.time_limit);
 
     useEffect(() => {
         const api_url = `https://opentdb.com/api_category.php`;
@@ -55,6 +56,13 @@ function Setup() {
     const handleNumberChange = (event) => {
         dispatch({
             type: 'CHANGE_NUMBER',
+            value: event.target.value
+        })
+    }
+
+    const handleTimeLimitChange = (event) => {
+        dispatch({
+            type: 'CHANGE_TIMER',
             value: event.target.value
         })
     }
@@ -110,6 +118,16 @@ function Setup() {
                                 <option value="10" key="10">10</option>
                                 <option value="15" key="15">15</option>
                                 <option value="20" key="20">20</option>
+                            </Form.Select>
+                        </Form.Group>
+
+                        <Form.Group className="mb-3" controlId="time_limit">
+                            <Form.Label>Select Time Limit Per Question:</Form.Label>
+                            <Form.Select value={time_limit} onChange={handleTimeLimitChange}>
+                                <option value={15} key="15">15</option>
+                                <option value={20} key="20">20</option>
+                                <option value={25} key="25">25</option>
+                                <option value={30} key="30">30</option>
                             </Form.Select>
                         </Form.Group>
 

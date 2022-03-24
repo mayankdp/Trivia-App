@@ -95,3 +95,16 @@
 #question li.incorrect {
     background-color: darkred;
 }
+
+#quiz_stats table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#quiz_stats table, #leaderboard_page table{
+    margin: auto;
+}
+
+#quiz_stats th, #quiz_stats td, #leaderboard_page th, #leaderboard_page td {
+    padding: 15px;
+}

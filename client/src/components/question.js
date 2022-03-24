@@ -21,7 +21,6 @@ function Question() {
     let timerApi;
     let timeLeft;
     const timeLimit = useSelector(state => state.options.time_limit);
-    //const [timeLeft, setTimeLeft] = useState(0)
 
     const dispatch = useDispatch();
     const question = questions[index];
@@ -78,7 +77,6 @@ function Question() {
         timerApi.pause()
         setChoiceSelected(true)
         setChosenAnswer(event.target.textContent)
-        console.log(timeLeft)
 
         if (event.target.textContent === correct) {
             let calcScore = 1 + (timeLeft / timeLimit)

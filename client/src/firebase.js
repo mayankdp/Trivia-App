@@ -1,6 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword, updateProfile, sendEmailVerification } from "firebase/auth";
-import { getFirestore, collection, query, where, getDocs, addDoc } from "firebase/firestore";
+import { getFirestore, collection, doc, getDocs, getDoc, addDoc, query, where, orderBy, limit } from "firebase/firestore";
+import {useState} from "react";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAS5aE2dUKtg7ZwbNJOGrjTWXjgeQKN3EA",
@@ -23,6 +24,7 @@ function register(displayName, email, password) {
         .then((userCred) => {
             console.log("registered")
             localStorage.setItem("user", userCred.user.uid);
+            addData("Users", { displayName: displayName, uid: userCred.user.uid })
             updateProfile(userCred.user, {displayName: displayName})
                 .then(() => {
                     console.log("display name added")
@@ -68,23 +70,44 @@ function logout() {
 }
 
 function addData(collectionName, data) {
-    try {
-        addDoc(collection(db, collectionName), data)
-            .then(() => {
-                console.log("document written")
-            })
-    } catch (e) {
-        console.error("error adding doc: " + e)
-    }
+    addDoc(collection(db, collectionName), data)
+        .then((docRef) => {
+            console.log("document written: " + docRef.id)
+        })
+        .catch((e) => {
+            console.error("error adding doc: " + e)
+        })
 }
 
 function getData(collectionName, documentName) {
 
 }
 
+async function getLeaderboardData() {
+    return await getDocs(query(collection(db, "Scores"), orderBy("date", "desc"), limit(10)))
+}
+
+async function getDisplayName(uid) {
+    let name;
+
+    await getDocs(query(collection(db, "Users"), where("uid", "==", uid)))
+        .then((docsRef) => {
+            let nameDoc = docsRef.docs[0]
+            if (nameDoc) {
+                name = nameDoc.data().display_name
+            } else {
+                name = "Anonymous"
+            }
+        })
+
+    return name
+}
+
 export {
     addData,
     getData,
+    getDisplayName,
+    getLeaderboardData,
     register,
     login,
     logout,

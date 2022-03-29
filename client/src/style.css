@@ -1,4 +1,4 @@
-.placeholder {
+#page_placeholder {
     text-align: center;
     padding: 50px;
 }
@@ -31,48 +31,32 @@
     background-color: #16537e;
 }
 
-.form_container, .container {
+#setup_page, #login_page, #register_page {
+    margin: 15px 0 0 0;
+}
+
+.container {
     margin: auto;
-    width: 20%;
+    width: 30%;
     padding: 20px;
     background-color: lightgray;
     border-radius: 8px;
 }
 
-.container input {
-    width: 100%;
-    margin: 15px 0;
-}
-
 .container button {
-    width: 80%;
-    margin-left: 10%;
+    width: 50%;
+    margin-left: 25%;
 }
 
-#setup_page, #login_page {
-    margin: 15px 0 0 0;
-}
-
-#setup_form h2 {
+.container h3 {
     text-align: center;
     border-bottom: 1px solid black;
     padding: 0 0 5px 0;
 }
 
-#setup_form select {
-    width: 100%;
-    padding: 5px 10px;
-    margin: 5px 0;
-}
-
-#setup_form input[type=submit] {
-    width: 50%;
-    margin-top: 5%;
-    margin-left: 25%;
-}
-
-#quiz_page {
-
+#question_footer div {
+    display: inline;
+    margin: 15px;
 }
 
 #question {
@@ -110,4 +94,17 @@
 
 #question li.incorrect {
     background-color: darkred;
+}
+
+#quiz_stats table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+#quiz_stats table, #leaderboard_page table{
+    margin: auto;
+}
+
+#quiz_stats th, #quiz_stats td, #leaderboard_page th, #leaderboard_page td {
+    padding: 15px;
 }

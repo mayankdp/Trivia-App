@@ -3,10 +3,11 @@ import { useNavigate } from "react-router";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-import AuthService from "../services/auth-service";
+import { register } from "../firebase";
 
 function Register() {
     const history = useNavigate();
+    const [displayName, setDisplayName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [formErrors, setFormErrors] = useState({});
@@ -14,6 +15,10 @@ function Register() {
 
     const validateForm = () => {
         let errors = {};
+
+        if (!displayName) {
+            errors.displayName = "A display name is required";
+        }
 
         if (!email) {
             errors.email = "An email is required";
@@ -43,10 +48,10 @@ function Register() {
             return
         }
 
-        AuthService.register(email, password)
+        register(displayName, email, password)
             .then(() => {
                 console.log("registration success")
-                history("/")
+                history("/login")
             })
             .catch((error) => {
                 console.log("registration failed: " + error)
@@ -56,9 +61,26 @@ function Register() {
     return (
         <div id="register_page">
             <Container>
+                <h3>Register</h3>
                 <Form noValidate validated={validated} onSubmit={handleSubmit}>
 
-                    <Form.Group controlId="email">
+                    <Form.Group className="mb-3" controlId="displayName">
+                        <Form.Label>Display Name:</Form.Label>
+                        <Form.Control
+                            isInvalid={!!formErrors.displayName}
+                            type="text"
+                            placeholder="DisplayName"
+                            value={displayName}
+                            onChange={(e) => setDisplayName(e.target.value)}
+                        />
+                        {formErrors.displayName && (
+                            <Form.Control.Feedback type="invalid">
+                                {formErrors.displayName}
+                            </Form.Control.Feedback>
+                        )}
+                    </Form.Group>
+
+                    <Form.Group className="mb-3" controlId="email">
                         <Form.Label>Email:</Form.Label>
                         <Form.Control
                             isInvalid={!!formErrors.email}
@@ -74,7 +96,7 @@ function Register() {
                         )}
                     </Form.Group>
 
-                    <Form.Group controlId="password">
+                    <Form.Group className="mb-3" controlId="password">
                         <Form.Label>Password:</Form.Label>
                         <Form.Control
                             isInvalid={!!formErrors.password}

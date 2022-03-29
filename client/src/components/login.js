@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import AuthService from "../services/auth-service";
+import { login } from "../firebase";
 
 function Login() {
     const history = useNavigate();
@@ -43,22 +43,23 @@ function Login() {
             return
         }
 
-        AuthService.login(email, password)
+        login(email, password)
             .then(() => {
                 console.log("login success")
                 history("/")
             })
             .catch((error) => {
-                console.log("login failed: " + error)
+                alert("login failed: " + error)
             })
     }
 
     return (
         <div id="login_page">
             <Container>
+                <h3>Login</h3>
                 <Form noValidate validated={validated} onSubmit={handleSubmit}>
 
-                    <Form.Group controlId="email">
+                    <Form.Group className="mb-3" controlId="email">
                         <Form.Label>Email:</Form.Label>
                         <Form.Control
                             isInvalid={!!formErrors.email}
@@ -74,7 +75,7 @@ function Login() {
                         )}
                     </Form.Group>
 
-                    <Form.Group controlId="password">
+                    <Form.Group className="mb-3" controlId="password">
                         <Form.Label>Password:</Form.Label>
                         <Form.Control
                             isInvalid={!!formErrors.password}
@@ -90,7 +91,7 @@ function Login() {
                         )}
                     </Form.Group>
 
-                    <Button type="submit">Login</Button>
+                    <Button variant="primary" type="submit">Login</Button>
 
                 </Form>
             </Container>

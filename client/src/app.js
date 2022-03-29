@@ -1,17 +1,15 @@
 import React, { useState } from "react";
 import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import Login from "./components/login";
 import Register from "./components/register";
 import Home from './components/home';
 import Leaderboard from "./components/leaderboard";
 import Profile from "./components/profile";
 import Quiz from "./components/quiz";
-import AuthService from "./services/auth-service";
-import './style.css';
+import { logout, auth } from "./firebase";
 
 function App() {
-    const auth = getAuth();
     const [loggedIn, setLoggedIn] = useState(false);
 
     onAuthStateChanged(auth, (user) => {
@@ -21,10 +19,6 @@ function App() {
             setLoggedIn(false);
         }
     })
-
-    const logout = () => {
-        AuthService.logout()
-    }
 
     return (
         <BrowserRouter>

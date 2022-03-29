@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
 import { useSelector, useDispatch } from 'react-redux';
 
 function GetQuestions(props) {
@@ -67,7 +68,7 @@ function GetQuestions(props) {
         }*/
     }
 
-    return <button onClick={handleQuery}>{props.text}</button>;
+    return <Button onClick={handleQuery}>{props.text}</Button>;
 }
 
 export default GetQuestions;

@@ -13,11 +13,11 @@ Triviana is a timed, multiple-choice trivia game. It generates a chosen number o
 - Soundtrack: This feature will have background music in the game and music for each question that a user answers correctly. 
 
 ## Roadmap:
-- [ ] Create web server
-- [ ] Create database for results logging
-- [ ] Implement question generation
-- [ ] Implement quiz generation
-- [ ] Implement account creation
+- [x] Create web server
+- [x] Create database for results logging
+- [x] Implement question generation
+- [x] Implement quiz generation
+- [x] Implement account creation
 - [ ] Create graphics for the UI
 - [ ] Create game UI
 - [ ] Create leaderboard UI

@@ -26,10 +26,11 @@ Triviana is a timed, multiple-choice trivia game. It generates a chosen number o
 ## Resources:
 - API: https://opentdb.com/
 - Hosted using Firebase: https://trivia-app-3b605.web.app
+
 - Possible languages to use
- 1. HTML/CSS
- 2. JavaScript
- 3. ReactJS
+  1. HTML/CSS
+  2. JavaScript
+  3. ReactJS
 
 ## Contributing:
 

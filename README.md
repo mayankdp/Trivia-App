@@ -24,15 +24,12 @@ Triviana is a timed, multiple-choice trivia game. It generates a chosen number o
 - [ ] Implement soundtrack for application
 
 ## Resources:
-- Possible APIs to use
- 1. https://github.com/linnndachen/Trivia-API
- 2. https://opentdb.com/
- 3. https://www.wikidata.org
+- API: https://opentdb.com/
+- Hosted using Firebase: https://trivia-app-3b605.web.app
 - Possible languages to use
  1. HTML/CSS
  2. JavaScript
- 3. React
- 4. SQL
+ 3. ReactJS
 
 ## Contributing:
 

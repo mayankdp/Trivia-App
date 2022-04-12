@@ -83,7 +83,25 @@ function getData(collectionName, documentName) {
 }
 
 async function getLeaderboardData() {
-    return await getDocs(query(collection(db, "Scores"), orderBy("date", "desc"), limit(10)))
+    const docsRef = await getDocs(query(collection(db, "Scores"), orderBy("date", "desc"), limit(10)))
+
+    let docArr = [];
+
+    docsRef.forEach((doc) => {
+        let data = doc.data()
+        data["id"] = doc.id
+        docArr = [...docArr, data]
+    })
+
+    let dataArr = [];
+
+    for (const doc of docArr) {
+        doc["user"] = await getDisplayName(doc.uid)
+
+        dataArr.push(doc)
+    }
+
+    return dataArr
 }
 
 async function getDisplayName(uid) {

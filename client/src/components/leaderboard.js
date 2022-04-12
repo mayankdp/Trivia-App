@@ -1,31 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { getDisplayName, getLeaderboardData } from "../firebase";
+import { getLeaderboardData } from "../firebase";
 
 function Leaderboard() {
     const [loading, setLoading] = useState(true);
     const [docsArray, setDocsArray] = useState([]);
 
     useEffect(() => {
-        console.log("running")
         getLeaderboardData()
-            .then((docsRef) => {
-
-                docsRef.forEach((doc) => {
-                    let data = doc.data()
-                    data["id"] = doc.id
-
-                    getDisplayName(data.uid)
-                        .then((name) => {
-                            data["user"] = name
-                        })
-
-                    setDocsArray([...docsArray, data])
-                })
-
+            .then((data) => {
+                setDocsArray(data)
                 setLoading(false)
             })
 
-    }, [setDocsArray])
+    }, [])
 
     if (loading) {
         return (
@@ -53,8 +40,6 @@ function Leaderboard() {
                     </thead>
                     <tbody>
                     {docsArray && docsArray.map((doc) => {
-                        console.log(doc)
-
                         return (
                             <tr key={doc.id}>
                                 <td>{doc.user}</td>

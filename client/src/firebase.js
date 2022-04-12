@@ -1,7 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword, updateProfile, sendEmailVerification } from "firebase/auth";
 import { getFirestore, collection, doc, getDocs, getDoc, addDoc, query, where, orderBy, limit } from "firebase/firestore";
-import {useState} from "react";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAS5aE2dUKtg7ZwbNJOGrjTWXjgeQKN3EA",
@@ -84,7 +83,25 @@ function getData(collectionName, documentName) {
 }
 
 async function getLeaderboardData() {
-    return await getDocs(query(collection(db, "Scores"), orderBy("date", "desc"), limit(10)))
+    const docsRef = await getDocs(query(collection(db, "Scores"), orderBy("date", "desc"), limit(10)))
+
+    let docArr = [];
+
+    docsRef.forEach((doc) => {
+        let data = doc.data()
+        data["id"] = doc.id
+        docArr = [...docArr, data]
+    })
+
+    let dataArr = [];
+
+    for (const doc of docArr) {
+        doc["user"] = await getDisplayName(doc.uid)
+
+        dataArr.push(doc)
+    }
+
+    return dataArr
 }
 
 async function getDisplayName(uid) {

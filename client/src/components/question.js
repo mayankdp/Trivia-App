@@ -120,6 +120,10 @@ function Question() {
         return <span> {seconds}</span>
     }
 
+    const quitQuiz = () => {
+        window.location.reload();
+    }
+
     if (!question) {
         return (<div>Loading...</div>)
     }
@@ -152,6 +156,10 @@ function Question() {
                     <div id="score">
                         Score: {score.toFixed(1)} / {questions.length * 2}
                     </div>
+                </div>
+
+                <div id="quit">
+                    <button id="quit_button" onClick={quitQuiz}>Quit quiz</button>
                 </div>
             </div>
         )

@@ -1,7 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword, updateProfile, sendEmailVerification } from "firebase/auth";
 import { getFirestore, collection, doc, getDocs, getDoc, addDoc, query, where, orderBy, limit } from "firebase/firestore";
-import {useState} from "react";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAS5aE2dUKtg7ZwbNJOGrjTWXjgeQKN3EA",

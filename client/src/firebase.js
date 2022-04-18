@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword, updateProfile, sendEmailVerification } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, sendEmailVerification } from "firebase/auth";
 import { getFirestore, collection, doc, getDocs, getDoc, addDoc, query, where, orderBy, limit } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -23,8 +23,8 @@ function register(displayName, email, password) {
         .then((userCred) => {
             console.log("registered")
             localStorage.setItem("user", userCred.user.uid);
-            addData("Users", { displayName: displayName, uid: userCred.user.uid })
-            updateProfile(userCred.user, {displayName: displayName})
+            addData("Users", { display_name: displayName, uid: userCred.user.uid })
+            updateProfile(userCred.user, { displayName: displayName })
                 .then(() => {
                     console.log("display name added")
                     sendEmailVerification(userCred.user)
@@ -97,7 +97,6 @@ async function getLeaderboardData() {
 
     for (const doc of docArr) {
         doc["user"] = await getDisplayName(doc.uid)
-
         dataArr.push(doc)
     }
 
@@ -120,10 +119,28 @@ async function getDisplayName(uid) {
     return name
 }
 
+async function getUserScore(uid) {
+    let userData = [];
+
+    getLeaderboardData()
+        .then((data) => {
+            let length;
+            length = data.length;
+
+            for (let i = 0; i < length; i++) {
+                if (data[i].uid == uid) {
+                    userData.push(data[i]);
+                };
+            }
+        })
+    return userData;
+}
+
 export {
     addData,
     getData,
     getDisplayName,
+    getUserScore,
     getLeaderboardData,
     register,
     login,

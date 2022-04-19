@@ -1,10 +1,14 @@
-import { auth, getUserScore } from "../firebase";
+import { auth, getUserScore, setNewDisplayName } from "../firebase";
 import React, { useEffect, useState } from "react";
-
+import "./profile.css"
 function Profile() {
     const user = auth.currentUser;
     const [loading, setLoading] = useState(true);
     const [userData, setUserData] = useState([]);
+
+    const [showEdit, setShowEdit] = useState(true);
+    const [displayName, setDisplayName] = useState(user.displayName);
+    const [scoreShow, setScoreShow] = useState(true);
 
     useEffect(() => {
         // console.log(user);
@@ -16,30 +20,96 @@ function Profile() {
             });
     }, []);
 
-    // const editName = (event) => {
-    //     console.log("Here")
-    // }
+    const editName = (e) => {
+        setShowEdit(!showEdit);
+    }
+    const nameChange = (e) => {
+        setDisplayName(e.target.value)
+    }
+    const confirmName = () => {
+        console.log(displayName);
+        setNewDisplayName(displayName, user.uid)
+        setShowEdit(!showEdit);
+    }
 
-    if (loading) {
-        return (
-            <div>
-                <div id="page_placeholder">
-                    <h2>Profile Placeholder</h2>
-                    <p>Display Name: {user.displayName}</p>
-                    <p>Email: {user.email}</p>
-                </div>
+
+    const showScore = () => {
+        console.log("Here");
+        setScoreShow(!scoreShow)
+    }
+
+    // if (loading) {
+    //     return (
+    //         <div>
+    //             <div id="page_placeholder">
+    //                 <h2>Profile Placeholder</h2>
+    //                 <p>Display Name: {user.displayName}</p>
+    //                 <p>Email: {user.email}</p>
+    //                 {showEdit === true ? (
+    //                     <div>
+    //                         <button type="button" onClick={editName}>Edit</button>
+
+    //                     </div>
+    //                 ) : (
+    //                     <div>
+    //                         <form>
+    //                             <label for="fname">Edit name:{" "}
+    //                                 <input type="text" id="fname" name="fname"
+    //                                     onChange={nameChange}>
+    //                                 </input>
+
+    //                                 <p onClick={editName}>Cancel</p>
+    //                                 <p onClick={confirmName}>Confirm</p>
+
+    //                             </label>
+    //                         </form>
+    //                         <button>Cancel</button>
+    //                     </div>
+    //                 )}
+    //             </div>
+    //         </div>
+    //     )
+    // } else {
+    return (
+        <div>
+            <div id="page_placeholder">
+                <h2>Profile Placeholder</h2>
+                <p>Display Name: {user.displayName}</p>
+                <p>Email: {user.email}</p>
+
+                {showEdit === true ? (
+                    <div>
+                        <p className="action_btn" onClick={editName}>Edit</p>
+                    </div>
+                ) : (
+                    <div>
+                        <form>
+                            <label for="fname">Edit Display Name:{" "}
+                                <input type="text" id="fname" name="fname"
+                                    onChange={nameChange}>
+                                </input> <br></br>
+                            </label>
+                        </form>
+                        <form className="buttons">
+                            <p className="action_btn" onClick={editName}>Cancel</p>
+                            <p className="action_btn" onClick={confirmName}>Confirm</p>
+                        </form>
+                    </div>
+                )}
+                {scoreShow === true ? (
+                    <label for="fname">
+                        <label>To see your previous quizes score&ensp;</label>
+                        <label className="clickme" onClick={showScore}>Click Here!</label>
+                    </label>
+                ) : (
+                    <label for="fname">
+                        <label>To hide your score&ensp;</label>
+                        <label className="clickme" onClick={showScore}>Click Here!</label>
+                    </label>
+                )}
             </div>
-        )
-    } else {
-        return (
-            <div>
-                <div id="page_placeholder">
-                    <h2>Profile Placeholder</h2>
-                    <p>Display Name: {user.displayName}</p>
-                    <p>Email: {user.email}</p>
-                    {/* <button type="button" onChange={editName(user.displayName)}>Edit Name</button> */}
-                </div>
 
+            {scoreShow === false ? (
                 <div id="leaderboard_page">
                     <table>
                         <thead>
@@ -56,7 +126,6 @@ function Profile() {
                         </thead>
                         <tbody>
                             {userData.map((doc) => {
-                                console.log(doc.id);
                                 return (
                                     <tr key={doc.id}>
                                         <td>{doc.id}</td>
@@ -73,9 +142,14 @@ function Profile() {
                         </tbody>
                     </table>
                 </div>
-            </div>
-        );
-    }
+            ) : (
+                <div>
+                </div>
+            )}
+
+        </div>
+    );
 }
+// }
 
 export default Profile;

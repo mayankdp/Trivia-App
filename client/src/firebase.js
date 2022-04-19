@@ -128,7 +128,7 @@ async function getUserScore(uid) {
             length = data.length;
 
             for (let i = 0; i < length; i++) {
-                if (data[i].uid == uid) {
+                if (data[i].uid === uid) {
                     userData.push(data[i]);
                 };
             }
@@ -136,11 +136,16 @@ async function getUserScore(uid) {
     return userData;
 }
 
+function setNewDisplayName(newName, uid) {
+    console.log("In Progress!");
+}
+
 export {
     addData,
     getData,
     getDisplayName,
     getUserScore,
+    setNewDisplayName,
     getLeaderboardData,
     register,
     login,

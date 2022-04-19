@@ -1,7 +1,7 @@
 export default function Home() {
     return (
         <div id="page_placeholder">
-            <h1>Welcome To Triviana!c</h1>
+            <h1>Welcome To Triviana!</h1>
             <h2>How to Play:</h2>
             <ul>
                 <li>First of all, Register and then login with your email and password to track your results.</li>

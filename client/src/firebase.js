@@ -23,8 +23,8 @@ function register(displayName, email, password) {
         .then((userCred) => {
             console.log("registered")
             localStorage.setItem("user", userCred.user.uid);
-            addData("Users", { display_name: displayName, uid: userCred.user.uid })
-            updateProfile(userCred.user, { displayName: displayName })
+            addData("Users", { displayName: displayName, uid: userCred.user.uid })
+            updateProfile(userCred.user, {displayName: displayName})
                 .then(() => {
                     console.log("display name added")
                     sendEmailVerification(userCred.user)

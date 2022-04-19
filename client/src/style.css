@@ -1,3 +1,8 @@
+/*
+Orange = #f56600
+Purple = #522d80
+*/
+
 .page_placeholder {
     text-align: center;
     padding: 50px;
@@ -8,7 +13,7 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #7f01fe;
+    background-color: #f56600;
 }
 
 #navbar li {
@@ -24,11 +29,11 @@
 }
 
 .inactive:hover {
-    background-color: #0181ff;
+    background-color: #f56600;
 }
 
 .active {
-    background-color: #16537e;
+    background-color: #f56600;
 }
 
 #setup_page, #login_page, #register_page {
@@ -39,7 +44,7 @@
     margin: auto;
     width: 30%;
     padding: 20px;
-    background-color: #feaa01;
+    background-color: #522d80;
     border-radius: 8px;
 }
 
@@ -61,7 +66,7 @@
 
 #question {
     width: 60%;
-    background-color: lightsteelblue;
+    background-color: #f56600;
     margin: auto;
     margin-top: 15px;
     padding: 10px;

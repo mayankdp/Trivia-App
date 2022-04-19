@@ -119,7 +119,7 @@ async function getDisplayName(uid) {
         .then((docsRef) => {
             let nameDoc = docsRef.docs[0]
             if (nameDoc) {
-                name = nameDoc.data().display_name
+                name = nameDoc.data().displayName
             } else {
                 name = "Anonymous"
             }

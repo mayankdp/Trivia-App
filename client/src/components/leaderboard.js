@@ -22,7 +22,7 @@ function Leaderboard() {
         )
     } else {
         return (
-            <div id="leaderboard_page">
+            <div id="leaderboard_page" className="page_placeholder">
                 <h2>Leaderboard</h2>
                 <table>
                     <thead>

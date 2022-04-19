@@ -78,12 +78,20 @@ function addData(collectionName, data) {
         })
 }
 
-function getData(collectionName, documentName) {
+async function getLeaderboardData(filters= {date: "desc", limit: 10}) {
+    let constraints = []
 
-}
+    for (const filter in filters) {
+        if (filter === "uid") {
+            constraints.push(where("uid", "==", filters[filter]))
+        } else if (filter === "limit") {
+            constraints.push(limit(filters[filter]))
+        } else {
+            constraints.push(orderBy(filter, filters[filter]))
+        }
+    }
 
-async function getLeaderboardData() {
-    const docsRef = await getDocs(query(collection(db, "Scores"), orderBy("date", "desc"), limit(10)))
+    const docsRef = await getDocs(query(collection(db, "Scores"), ...constraints))
 
     let docArr = [];
 
@@ -142,7 +150,6 @@ function setNewDisplayName(newName, uid) {
 
 export {
     addData,
-    getData,
     getDisplayName,
     getUserScore,
     setNewDisplayName,

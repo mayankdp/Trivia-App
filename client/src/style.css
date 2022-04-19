@@ -8,7 +8,7 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #1e90ff;
+    background-color: #7f01fe;
 }
 
 #navbar li {
@@ -39,7 +39,7 @@
     margin: auto;
     width: 30%;
     padding: 20px;
-    background-color: lightgray;
+    background-color: #feaa01;
     border-radius: 8px;
 }
 

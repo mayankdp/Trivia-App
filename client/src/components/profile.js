@@ -38,38 +38,6 @@ function Profile() {
         setScoreShow(!scoreShow)
     }
 
-    // if (loading) {
-    //     return (
-    //         <div>
-    //             <div id="page_placeholder">
-    //                 <h2>Profile Placeholder</h2>
-    //                 <p>Display Name: {user.displayName}</p>
-    //                 <p>Email: {user.email}</p>
-    //                 {showEdit === true ? (
-    //                     <div>
-    //                         <button type="button" onClick={editName}>Edit</button>
-
-    //                     </div>
-    //                 ) : (
-    //                     <div>
-    //                         <form>
-    //                             <label for="fname">Edit name:{" "}
-    //                                 <input type="text" id="fname" name="fname"
-    //                                     onChange={nameChange}>
-    //                                 </input>
-
-    //                                 <p onClick={editName}>Cancel</p>
-    //                                 <p onClick={confirmName}>Confirm</p>
-
-    //                             </label>
-    //                         </form>
-    //                         <button>Cancel</button>
-    //                     </div>
-    //                 )}
-    //             </div>
-    //         </div>
-    //     )
-    // } else {
     return (
         <div>
             <div id="page_placeholder">
@@ -150,6 +118,5 @@ function Profile() {
         </div>
     );
 }
-// }
 
 export default Profile;

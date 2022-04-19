@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword, updateProfile, sendEmailVerification } from "firebase/auth";
-import { getFirestore, collection, doc, getDocs, getDoc, addDoc, query, where, orderBy, limit } from "firebase/firestore";
+import { getFirestore, collection, getDocs, addDoc, query, where, orderBy, limit } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAS5aE2dUKtg7ZwbNJOGrjTWXjgeQKN3EA",
@@ -78,12 +78,20 @@ function addData(collectionName, data) {
         })
 }
 
-function getData(collectionName, documentName) {
+async function getLeaderboardData(filters= {date: "desc", limit: 10}) {
+    let constraints = []
 
-}
+    for (const filter in filters) {
+        if (filter === "uid") {
+            constraints.push(where("uid", "==", filters[filter]))
+        } else if (filter === "limit") {
+            constraints.push(limit(filters[filter]))
+        } else {
+            constraints.push(orderBy(filter, filters[filter]))
+        }
+    }
 
-async function getLeaderboardData() {
-    const docsRef = await getDocs(query(collection(db, "Scores"), orderBy("date", "desc"), limit(10)))
+    const docsRef = await getDocs(query(collection(db, "Scores"), ...constraints))
 
     let docArr = [];
 
@@ -122,7 +130,6 @@ async function getDisplayName(uid) {
 
 export {
     addData,
-    getData,
     getDisplayName,
     getLeaderboardData,
     register,

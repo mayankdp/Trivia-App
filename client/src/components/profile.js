@@ -7,14 +7,18 @@ function Profile() {
     const [userData, setUserData] = useState([]);
 
     useEffect(() => {
-        console.log(user);
+        // console.log(user);
         getUserScore(user.uid)
             .then((data) => {
-                console.log(data);
+                // console.log(data);
                 setUserData(data);
                 setLoading(false)
             });
     }, []);
+
+    // const editName = (event) => {
+    //     console.log("Here")
+    // }
 
     if (loading) {
         return (
@@ -33,6 +37,7 @@ function Profile() {
                     <h2>Profile Placeholder</h2>
                     <p>Display Name: {user.displayName}</p>
                     <p>Email: {user.email}</p>
+                    {/* <button type="button" onChange={editName(user.displayName)}>Edit Name</button> */}
                 </div>
 
                 <div id="leaderboard_page">

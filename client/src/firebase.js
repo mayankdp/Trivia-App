@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword, updateProfile, sendEmailVerification } from "firebase/auth";
-import { getFirestore, collection, getDocs, addDoc, query, where, orderBy, limit } from "firebase/firestore";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, sendEmailVerification } from "firebase/auth";
+import { getFirestore, collection, doc, getDocs, getDoc, addDoc, query, where, orderBy, limit } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAS5aE2dUKtg7ZwbNJOGrjTWXjgeQKN3EA",
@@ -105,7 +105,6 @@ async function getLeaderboardData(filters= {date: "desc", limit: 10}) {
 
     for (const doc of docArr) {
         doc["user"] = await getDisplayName(doc.uid)
-
         dataArr.push(doc)
     }
 
@@ -128,9 +127,32 @@ async function getDisplayName(uid) {
     return name
 }
 
+async function getUserScore(uid) {
+    let userData = [];
+
+    getLeaderboardData()
+        .then((data) => {
+            let length;
+            length = data.length;
+
+            for (let i = 0; i < length; i++) {
+                if (data[i].uid === uid) {
+                    userData.push(data[i]);
+                };
+            }
+        })
+    return userData;
+}
+
+function setNewDisplayName(newName, uid) {
+    console.log("In Progress!");
+}
+
 export {
     addData,
     getDisplayName,
+    getUserScore,
+    setNewDisplayName,
     getLeaderboardData,
     register,
     login,

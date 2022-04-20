@@ -3,7 +3,7 @@ Orange = #f56600
 Purple = #522d80
 */
 
-.page_placeholder {
+#leaderboard_page {
     text-align: center;
     padding: 50px;
 }
@@ -36,11 +36,16 @@ Purple = #522d80
     background-color: #f56600;
 }
 
-#setup_page, #login_page, #register_page {
+#confirm_edit, #cancel_edit {
+    margin-left: 50%;
+}
+
+#setup_page, #login_page, #register_page, #home_page, #profile_page {
     margin: 15px 0 0 0;
 }
 
-.container {
+.container, #welcome, #profile_info, #profile_scores {
+    color: white;
     margin: auto;
     width: 30%;
     padding: 20px;
@@ -48,14 +53,14 @@ Purple = #522d80
     border-radius: 8px;
 }
 
-.container button {
+.container button, #edit_button, #show_scores, #hide_scores {
     width: 50%;
     margin-left: 25%;
 }
 
-.container h3 {
+.container h3, #welcome h3, #profile_info h3, #profile_scores h3 {
     text-align: center;
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid white;
     padding: 0 0 5px 0;
 }
 

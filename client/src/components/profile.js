@@ -1,9 +1,11 @@
 import { auth, getUserScore, setNewDisplayName } from "../firebase";
 import React, { useEffect, useState } from "react";
 import "./profile.css"
+
 function Profile() {
+
     const user = auth.currentUser;
-    const [loading, setLoading] = useState(true);
+    // const [loading, setLoading] = useState(true);
     const [userData, setUserData] = useState([]);
 
     const [showEdit, setShowEdit] = useState(true);
@@ -16,7 +18,7 @@ function Profile() {
             .then((data) => {
                 // console.log(data);
                 setUserData(data);
-                setLoading(false)
+                // setLoading(false)
             });
     }, []);
 
@@ -39,15 +41,15 @@ function Profile() {
     }
 
     return (
-        <div>
-            <div id="page_placeholder">
-                <h2>Profile Placeholder</h2>
+        <div id="profile_page" className="page_placeholder">
+            <div id="profile_info">
+                <h3>Profile Information</h3>
                 <p>Display Name: {user.displayName}</p>
                 <p>Email: {user.email}</p>
 
                 {showEdit === true ? (
                     <div>
-                        <p className="action_btn" onClick={editName}>Edit</p>
+                        <label className="action_btn" onClick={editName}>&ensp;Edit&ensp;</label>
                     </div>
                 ) : (
                     <div>
@@ -66,19 +68,20 @@ function Profile() {
                 )}
                 {scoreShow === true ? (
                     <label for="fname">
-                        <label>To see your previous quizes score&ensp;</label>
-                        <label className="clickme" onClick={showScore}>Click Here!</label>
+                        <label>View your Past quizzes score&ensp;</label>
+                        <label className="clickme" onClick={showScore}>&ensp;Click Here!&ensp;</label>
                     </label>
                 ) : (
                     <label for="fname">
-                        <label>To hide your score&ensp;</label>
-                        <label className="clickme" onClick={showScore}>Click Here!</label>
+                        <label>Hide your score&ensp;</label>
+                        <label className="clickme" onClick={showScore}>&ensp;Click Here!&ensp;</label>
                     </label>
                 )}
             </div>
 
             {scoreShow === false ? (
                 <div id="leaderboard_page">
+                    <h3>Past Quizzes</h3>
                     <table>
                         <thead>
                             <tr>
@@ -114,72 +117,8 @@ function Profile() {
                 <div>
                 </div>
             )}
-
-=======
-import { auth, getLeaderboardData } from "../firebase";
-import React, { useEffect, useState } from "react";
-
-function Profile() {
-    const user = auth.currentUser;
-    const [loading, setLoading] = useState(true);
-    const [docsArray, setDocsArray] = useState([]);
-
-    useEffect(() => {
-        let filter = {uid: user.uid}
-
-        getLeaderboardData(filter)
-            .then((data) => {
-                setDocsArray(data)
-                setLoading(false)
-            })
-
-    }, [])
-
-    return (
-        <div id="profile_page" className="page_placeholder">
-            <div id="profile_info">
-                <h3>Profile Information</h3>
-                <p>Display Name: {user.displayName}</p>
-                <p>Email: {user.email}</p>
-            </div>
-
-            {!loading && (
-                <div id="past_quizzes">
-                    <h3>Past Quizzes</h3>
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>Quiz ID</th>
-                            <th>Date</th>
-                            <th>Category</th>
-                            <th>Difficulty</th>
-                            <th>Question Amount</th>
-                            <th>Question Type</th>
-                            <th>Time Limit</th>
-                            <th>Score</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {docsArray && docsArray.map((doc) => {
-                            return (
-                                <tr key={doc.id}>
-                                    <td>{doc.id}</td>
-                                    <td>{doc.date.toDate().toLocaleString('en-US')}</td>
-                                    <td>{doc.category}</td>
-                                    <td>{doc.difficulty}</td>
-                                    <td>{doc.question_number}</td>
-                                    <td>{doc.question_type}</td>
-                                    <td>{doc.time_limit}</td>
-                                    <td>{doc.score}</td>
-                                </tr>
-                            )
-                        })}
-                        </tbody>
-                    </table>
-                </div>
-            )}
         </div>
-    );
+    )
 }
 
 export default Profile;

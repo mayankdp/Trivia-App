@@ -9,11 +9,13 @@
   width: 200px;
   margin: 2;
   display: inline;
-  background-color: #e0c9c9;
+  background-color: #df9138;
   border-width: 5px;
+  border-radius: 20px;
   border-color: rgb(8, 8, 8);
 }
 
 .clickme {
-  background-color: antiquewhite;
+  background-color: #df9036;
+  border-radius: 20px;
 }

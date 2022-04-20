@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, sendEmailVerification } from "firebase/auth";
-import { getFirestore, collection, doc, getDocs, getDoc, addDoc, query, where, orderBy, limit } from "firebase/firestore";
+import { getFirestore, collection, getDocs, addDoc, query, where, orderBy, limit } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAS5aE2dUKtg7ZwbNJOGrjTWXjgeQKN3EA",
@@ -24,7 +24,7 @@ function register(displayName, email, password) {
             console.log("registered")
             localStorage.setItem("user", userCred.user.uid);
             addData("Users", { displayName: displayName, uid: userCred.user.uid })
-            updateProfile(userCred.user, {displayName: displayName})
+            updateProfile(userCred.user, { displayName: displayName })
                 .then(() => {
                     console.log("display name added")
                     sendEmailVerification(userCred.user)
@@ -78,7 +78,7 @@ function addData(collectionName, data) {
         })
 }
 
-async function getLeaderboardData(filters= {date: "desc", limit: 10}) {
+async function getLeaderboardData(filters = { date: "desc", limit: 10 }) {
     let constraints = []
 
     for (const filter in filters) {

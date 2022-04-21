@@ -7,10 +7,9 @@ Triviana is a timed, multiple-choice trivia game. It generates a chosen number o
 ## Feature: 
 
 - Leaderboard: This feature is a global leaderboard where users are ranked based on their performance in Trivia game.
-- Buzzed out: This feature will create a sound effect if the user ran out of time to answer the question or got it wrong.
+- Buzzed out: This feature is basically each question has a timer selected by user suchas 5s, 10s, 15s etc. 
 - Pics: This feature will give the user a picture for some specific questions and they will answer accordingly.
 - Questionnaires: This feature will give users to set how many questions of a single trivia game they want to play
-- Soundtrack: This feature will have background music in the game and music for each question that a user answers correctly. 
 
 ## Roadmap:
 - [x] Create web server
@@ -18,9 +17,9 @@ Triviana is a timed, multiple-choice trivia game. It generates a chosen number o
 - [x] Implement question generation
 - [x] Implement quiz generation
 - [x] Implement account creation
-- [ ] Create graphics for the UI
-- [ ] Create game UI
-- [ ] Create leaderboard UI
+- [X] Create graphics for the UI
+- [X] Create game UI
+- [X] Create leaderboard UI
 - [ ] Implement soundtrack for application
 
 ## Resources:

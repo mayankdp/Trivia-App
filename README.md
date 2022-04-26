@@ -51,36 +51,8 @@ If you have a suggestion that would make this better, please fork the repo and c
 4. Drew Garrison - awgarri - awgarri@g.clemson.edu
 
 ## Teamwork Policies:
-
 - Communicate with the group through Microsoft Teams
-- All the tasks assigned by a Scrum Master or team member needs to be completed before the deadline. 
-- Scrum Master is using Github Project tool to keep track and monitor all the backlogs, user stories and tasks. 
 
-## UI Wireframes
-
-- Basic home page
-<img src="images/home_page_mock.png" width="400">
-<!-- ![base home page wireframe](images/home_page_mock.png)-->
-
-- Home page while signed in
-<img src="images/home_page_signedin_mock.png" width="400">
-<!-- ![signed in home page wireframe](images/home_page_signedin_mock.png) -->
-
-- Account signup page
-<img src="images/signup_page_mock.png" width="400">
-<!-- ![signup page wireframe](images/signup_page_mock.png) -->
-
-- Quiz configuration page
-<img src="images/quiz_select_page_mock.png" width="400">
-<!-- ![quiz configuration page wireframe](images/quiz_select_page_mock.png) -->
-
-- Quiz page
-<img src="images/quiz_page_mock.png" width="400">
-<!-- ![quiz page wireframe](images/quiz_page_mock.png) -->
-
-- Leaderboard page
-<img src="images/leaderboard_page_mock.png" width="400">
-<!-- ![leaderboard page wireframe](images/leaderboard_page_mock.png) -->
 
 ## License:
 
